@@ -1,0 +1,17 @@
+version: "3.6"
+services:
+  systemd-test:
+    cgroup_parent: "docker.slice"
+    image: "yksam/debian-systemd:latest"
+    container_name: "systemd-test"
+    network_mode: "bridge"
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
+    security_opt:
+      - "seccomp=unconfined"
+      - "label=disable"
+    stdin_open: true
+    tty: true
