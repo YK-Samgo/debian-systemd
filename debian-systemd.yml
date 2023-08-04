@@ -12,6 +12,5 @@ services:
       - /run/lock
     security_opt:
       - "seccomp=unconfined"
-      - "label=disable"
     stdin_open: true
     tty: true
