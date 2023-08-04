@@ -4,7 +4,20 @@ Start container with systemd, and you can exec every systemd commands.
 
 ## Usage
 
-You can deploy this container easily with docker-compose.
+You can deploy this container with docker command.
+
+```bash
+docker run -itd --name systemd-test \
+    --privileged \
+    --security-opt seccomp=unconfined \
+    --cgroup-parent=docker.slice \
+    --tmpfs /tmp \
+    --tmpfs /run \
+    --tmpfs /run/lock \
+    yksam/debian-systemd:latest
+```
+
+Also, you can deploy this container easily with docker-compose.
 
 ```bash
 # Deploy
