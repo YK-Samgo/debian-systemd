@@ -11,6 +11,7 @@ docker run -itd --name systemd-test \
     --privileged \
     --security-opt seccomp=unconfined \
     --cgroup-parent=docker.slice \
+    --cgroupns private \
     --tmpfs /tmp \
     --tmpfs /run \
     --tmpfs /run/lock \
